@@ -1,7 +1,10 @@
 #include <Servo.h>
 #include <Adafruit_NeoPixel.h>
 
+Servo moveservo;
+
 int val;
+int pos;
       #define PIN 6
 
 // Parameter 1 = number of pixels in strip
@@ -16,12 +19,14 @@ void setup() {
   Serial.begin(9600); 
   strip.begin();
   strip.setPixelColor(0, 75, 0, 130);
+  strip.setPixelColor(1, 75, 0, 130);
   strip.show();
+  moveservo.attach(9);
+  moveservo.write(0);
 }
 
-void loop() {
-  if (Serial.available()){
-    val = Serial.read();
+void sorting(){
+  val = Serial.read();
     if (val == '0'){
       Serial.print("Rawenclaw");
       strip.setPixelColor(0, 0, 0, 150);
@@ -46,6 +51,27 @@ void loop() {
       strip.setPixelColor(1, 255, 150, 0);
       strip.show();
     }
+    if (val == '4'){
+      Serial.print("Reset");
+      strip.setPixelColor(0, 75, 0, 130);
+      strip.setPixelColor(1, 75, 0, 130);
+      strip.show();
+    }
+}
+
+void movemotor(){
+  pos = 0;
+  moveservo.write(pos);              // tell servo to go to position in variable 'pos'
+  delay(15);
+  pos = 180;
+  moveservo.write(pos);
+  delay(15); 
+}
+
+void loop() {
+  if (Serial.available()){
+    sorting();
    }
+  movemotor(); 
 }
 

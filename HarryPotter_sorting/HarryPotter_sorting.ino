@@ -66,22 +66,19 @@ void movemotor(){
   pos = 135;
   moveservo.write(pos);
   delay(5); 
-  pos = 45;
-  moveservo.write(pos);              // tell servo to go to position in variable 'pos'
-  delay(5);
-  pos = 135;
-  moveservo.write(pos);
 }
 
 void loop() {
   if (Serial.available()){
     sorting();
+    movemotor();
+    delay(4000);
    }
   if (val == 'F'){
     movemotor();
-    val = 'G'; 
   }
-    strip.setPixelColor(0, 200, 200, 200);
-    strip.setPixelColor(1, 200, 200, 200);
+  strip.setPixelColor(0, 200, 200, 200);
+  strip.setPixelColor(1, 200, 200, 200);
+  strip.show();
 }
 

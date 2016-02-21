@@ -1,51 +1,51 @@
 from Chat import Chat, reflections
 from random import randint
 
-song = "Oh you may not think I'm pretty, \n\
-But don't judge on what you see, \n\
-I'll eat myself if you can find \n\
+song = 'Oh you may not think I\'m pretty, \n\
+But don\'t judge on what you see, \n\
+I\'ll eat myself if you can find, \n\
 A smarter hat than me. \n\
  \n\
 You can keep your bowlers black, \n\
 Your top hats sleek and tall, \n\
-For I'm the Hogwarts Sorting Hat \n\
+For I\'m the Hogwarts Sorting Hat, \n\
 And I can cap them all. \n\
  \n\
-There's nothing hidden in your head \n\
-The Sorting Hat can't see, \n\
-So try me on and I will tell you \n\
+There\'s nothing hidden in your head, \n\
+The Sorting Hat can\'t see, \n\
+So try me on and I will tell you, \n\
 Where you ought to be. \n\
  \n\
-You might belong in Gryffindor, \n\
+You might belong in griffin door, \n\
 Where dwell the brave at heart, \n\
-Their daring, nerve, and chivalry \n\
-Set Gryffindors apart; \n\
+Their daring, nerve, and chivalry, \n\
+Set griffin doors apart; \n\
  \n\
 You might belong in Hufflepuff, \n\
 Where they are just and loyal, \n\
-Those patient Hufflepuffs are true \n\
+Those patient Hufflepuffs are true, \n\
 And unafraid of toil; \n\
  \n\
-Or yet in wise old Ravenclaw, \n\
-if you've a ready mind, \n\
+Or yet in wise old raven claw, \n\
+if you\'ve a ready mind, \n\
 Where those of wit and learning, \n\
 Will always find their kind; \n\
  \n\
-Or perhaps in Slytherin \n\
-You'll make your real friends, \n\
-Those cunning folks use any means \n\
+Or perhaps in sliderin, \n\
+You\'ll make your real friends, \n\
+Those cunning folks use any means, \n\
 To achieve their ends. \n\
  \n\
-So put me on! Don't be afraid! \n\
-And don't get in a flap! \n\
-You're in safe hands (though I have none) \n\
-For I'm a Thinking Cap!"
+So put me on! Don\'t be afraid! \n\
+And don\'t get in a flap! \n\
+You\'re in safe hands (though I have none) \n\
+For I\'m a Thinking Cap!'
 
-song_excerpts = ( '\n'.join(song.split('\n')[:4]),
-    '\n'.join(song.split('\n')[5:9]),
-    '\n'.join(song.split('\n')[10:14]),
-    '\n'.join(song.split('\n')[15:-5]),
-    '\n'.join(song.split('\n')[-4:]),
+song_excerpts = ( ' '.join(song.split('\n')[:4]).strip(),
+    ' '.join(song.split('\n')[5:9]).strip(),
+    ' '.join(song.split('\n')[10:14]).strip(),
+    ' '.join(song.split('\n')[15:-5]).strip(),
+    ' '.join(song.split('\n')[-4:]).strip(),
     'I already sang for you.',
     'No more songs for you.',
     'Why don\'t you sing me a song?',
@@ -56,8 +56,8 @@ pairs = (
 
   (r'(.*)((Hufflepuff)|(Ravenclaw)|(Gryffindor)|(Slytherin))(.*)',
   ( "So you think you\'d do well in %2?",
-    "You like %2, eh?",
-    "You\'d do well in %2",
+    "You like %2, don't you",
+    "You could do well in %2",
     "You could be great in %2")),
 
   (r'((.*)((bug)|(insect)|(spider))(.*))',
@@ -65,93 +65,94 @@ pairs = (
     "Somehow, the bravest people are still afraid of bugs." )),
 
   (r'(((.*)No(t?) (.*)lazy(.*))|((.*)((Forest)|(Tail))(.*)))',
-  ( "Hufflepuff it is then!",
-    "You'd do well in Hufflepuff.",
-    "Why, you're a Hufflepuff!" )),
+  ( "HUFFLEPUFF it is then!",
+    "You could do well in Hufflepuff.",
+    "Why, you're a HUFFLEPUFF!" )),
 
   (r'(((.*) lazy(.*))|((.*)No(t?)(.*) hard(\s?)work(.*)))',
   ( "Definitely not Hufflepuff then.",
-    "Definitely not Slytherin then.",
+    "Definitely not sliderin then.",
     "Not very hardworking, are you?" ,
     "Not very ambitious, are you?")),
 
   (r'(((.*) hard(\s?)work(.*))|((.*)work (.*)hard(.*)))',
-  ( "Hufflepuff it is then!",
-    "Why, you're a Hufflepuff!",
-    "You'd do well in Hufflepuff.",
+  ( "HUFFLEPUFF it is then!",
+    "Why, you're a HUFFLEPUFF!",
+    "You could do well in Hufflepuff.",
     "Working hard is important. But there is something that matters even more: believing in yourself." )),
 
   (r'((.*)No(t?)(.*)((coward)|(afraid)|(scared))(.*))',
-  ( "Gryffindor it is then!",
-    "Why, you're a Gryffindor!",
-    "You'd do well in Gryffindor.")),
-
-  (r'(((.*) ((scared)|(afraid)|(coward))(.*))|((.*)No(t?)(.*) brave(.*)))',
-  ( "Definitely not Gryffindor then.",
-    "Not very brave, are you?" )),
-
-  (r'((.*)(( brave)|(Head))(.*))',
-  ( "Gryffindor it is then!",
-    "You'd do well in Gryffindor.",
-    "Why, you're a Gryffindor!" )),
-
-  (r'((.*)(Dawn)(.*))',
-  ( "Gryffindor it is then!",
-    "You'd do well in Gryffindor.",
-    "You like books, eh?",
-    "Why, you're a Gryffindor!",
-    "You'd do well in Ravenclaw.",
-    "Why, you're a Ravenclaw!",
-    "Ravenclaw it is then!" )),
+  ( "GRYFFINDOR it is then!",
+    "Why, you're a GRYFFINDOR!",
+    "You could do well in griffin door.")),
 
   (r'((.*)((death)|(dying))(.*))',
   ( "The ones that love us never really leave us.",
     "You think the dead we loved ever truly leave us?",
     "It is the unknown we fear when we look upon death and darkness, nothing more.",
-    "Do not pity the dead.",
-    "Pity the living, and, above all those who live without love.",
     "To the well-organized mind, death is but the next great adventure.")),
+
+  (r'(((.*) ((scared)|(afraid)|(coward))(.*))|((.*)No(t?)(.*) brave(.*)))',
+  ( "Definitely not griffin door then.",
+    "Not very brave, are you?" )),
+
+  (r'((.*)(( brave)|(Head))(.*))',
+  ( "GRYFFINDOR it is then!",
+    "You could do well in griffin door.",
+    "Why, you're a GRYFFINDOR!" )),
+
+  (r'((.*)(Dawn)(.*))',
+  ( "GRYFFINDOR it is then!",
+    "You could do well in griffin door.",
+    "You like books, don't you",
+    "Why, you're a GRYFFINDOR!",
+    "You could do well in raven claw.",
+    "Why, you're a RAVENCLAW!",
+    "RAVENCLAW it is then!" )),
 
   (r'((.*)((happ)|(sad)|(depress))(.*))',
   ( "Happiness can be found, even in the darkest of times, if one only remembers to turn on the light.",
     "It does not do to forget to live.")),
 
   (r'(((.*)No(t?)(.*) ((money)|(ambitio)|(power))(.*)))',
-  ( "Definitely not Slytherin then.",
+  ( "Definitely not sliderin then.",
     "Not very ambitious, are you?" )),
 
   (r'(((.*) ((cash)|(money)|(ambitio)|(power))(.*))|(.*)((Moon)|(Dusk))(.*))',
-  ( "Slytherin it is then!",
-    "You'd do well in Slytherin.",
-    "You like power, eh?",
-    "You like money, eh?",
-    "Why, you're a Slytherin!" )),
+  ( "SLYTHERIN it is then!",
+    "You'd do well in sliderin.",
+    "You like power, don't you",
+    "Why, you're a SLYTHERIN!" )),
 
   (r'((.*)No(t?) (.*)((dumb)|(stupid)|(idiot))(.*))',
-  ( "Ravenclaw it is then!",
-    "Why, you're a Ravenclaw!",
-    "You'd do well in Ravenclaw.",
-    "You like books, eh?",
+  ( "RAVENCLAW it is then!",
+    "Why, you're a RAVENCLAW!",
+    "You'd do well in raven claw.",
+    "You like books, don't you",
     "Cleverness! There are more important things - friendship and bravery.")),
 
   (r'(((.*) ((dumb)|(stupid)|(idiot))(.*))|((.*)No(t?)(.*) ((smart)|(clever)|(witty))(.*)))',
-  ( "Definitely not Ravenclaw then.",
+  ( "Definitely not raven claw then.",
     "Not very smart, are you?",
     "Not very sharp, are you?",
     "Not very witty, are you?",
     "Not very clever, are you?" )),
 
   (r'((.*)((smart)|(clever)|(witty)|(Star)|(River))(.*))',
-  ( "Ravenclaw it is then!",
-    "You like books, eh?",
-    "You'd do well in Ravenclaw.",
-    "Why, you're a Ravenclaw!" )),
+  ( "RAVENCLAW it is then!",
+    "You like books, don't you",
+    "You'd do well in raven claw.",
+    "Why, you're a RAVENCLAW!" )),
 
   (r'(.*) (song|poem)(.*)',
   song_excerpts),
 
   (r'Sing(.*)',
   song_excerpts),
+
+  (r'((idk)|(I don\'t know))',
+  ( "It is our choices that show who we truly are, far more than our abilities.",
+    "We must all face the choice between what is right and what is easy.")),
 
   (r'(.*)((You)|(You\'re))(.*)',
   ( "We should be discussing you, not me.",
@@ -161,12 +162,8 @@ pairs = (
 
   (r'((Hello)|(Hi)|(Yo)|(Hey))(.*)',
   ( "Hello... Bee in your bonnet?",
-    "Hmmm... how are you today?",
-    "Hmm, where to put you?")),
-
-  (r'(idk)|(I don\'t know)',
-  ( "It is our choices that show who we truly are, far more than our abilities.",
-    "We must all face the choice between what is right and what is easy.")),
+    "Hello... how are you today?",
+    "Hello, where to put you?")),
 
   # (r'I need (.*)',
   # ( "Why do you need %1?",
@@ -230,12 +227,6 @@ pairs = (
   # ( "Tell me more about your friends.",
   #   "When you think of a friend, what comes to mind?",
   #   "Why don't you tell me about a childhood friend?")),
-
-  (r'(Yes|no)',
-  ( "You seem quite sure.",
-    "OK, but can you elaborate a bit?",
-    "Let's change focus a bit... Tell me about your biggest fear.",
-    "I see. Now tell me, heads or tails?")),
 
   # (r'(.*) computer(.*)',
   # ( "Are you really talking about me?",
@@ -305,7 +296,6 @@ pairs = (
   
   (r'(.*)((bitch)|(shit)|(fuck)|(slut)|(whore))(.*)',
   ( "Maybe you don\'t belong in any Hogwarts House.",
-    "Don\'t speak that way.",
     "I'd hex you if I had hands.",
     "Straight to the dungeons with you!",
     "Someone should hex you.")),
@@ -319,18 +309,25 @@ pairs = (
     "The answer lies within yourself.",
     "Why don't you tell me?")),
 
+  (r'(Yes|no)',
+  ( "You seem quite sure.",
+    "OK, but can you elaborate a bit?",
+    "Let's change focus a bit... Tell me about your biggest fear.",
+    "I see. So..... heads or tails?",
+    "I see. Now tell me, do you prefer dawn or dusk?")),
+
   (r'quit',
   ( "Enjoy your time at Hogwarts.",
     "Good-bye.",
-    "Thank you, that will be $150.  Have a good day!")),
+    "Hogwarts, Hogwarts, Hoggy Warty Hogwarts \nLearn something please!")),
 
   (r'(.*)',
-  ( "Forest or river?",
-    "Do you prefer dawn or dusk?",
+  ( "So.... Forest or river?",
+    "I see. Now tell me, do you prefer dawn or dusk?",
     "So..... Moon or stars?",
+    "I see. Now tell me, heads or tails?",
     "Let's change focus a bit... Tell me about your biggest fear.",
     "Can you elaborate on that?",
-    "Why do you say that %1?",
     "Very interesting."))
 )
 

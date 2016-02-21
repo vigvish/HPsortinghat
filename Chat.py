@@ -9,6 +9,8 @@
 # Jeff Epler <jepler@inetnebr.com> and Jez Higgins <jez@jezuk.co.uk>.
 from __future__ import print_function
 
+DEBUG = True
+
 import re
 import random
 from nltk import compat, corpus
@@ -22,6 +24,9 @@ import warnings
 warnings.filterwarnings("ignore")
 
 reflections = {
+  "gryffindor" : "griffin door",
+  "slytherin"  : "sliderin",
+  "ravenclaw"  : "raven claw",
   "i am"       : "you are",
   "i was"      : "you were",
   "i"          : "you",
@@ -101,19 +106,45 @@ class Chat(object):
         :rtype: str
         """
 
+        num_pairs = len(self._pairs)
+
         # check each pattern
-        for (pattern, response) in self._pairs:
+        for idx, (pattern, response) in enumerate(self._pairs):
             match = pattern.match(str)
 
             # did the pattern match?
             if match:
-                resp = random.choice(response)    # pick a random response
+                selection = random.randint(0, len(response) - 1)
+                resp = response[selection]   # pick a random response
+
+                if 'GRYFFINDOR' in resp:
+                    house = 1
+                    resp = resp.replace('GRYFFINDOR', 'GRIFFIN DOOR')
+                elif 'SLYTHERIN' in resp:
+                    house = 2
+                    resp = resp.replace('SLYTHERIN', 'SLIDERIN')
+                elif 'HUFFLEPUFF' in resp:
+                    house = 3
+                elif 'RAVENCLAW' in resp:
+                    house = 4
+                    resp = resp.replace('RAVENCLAW', 'RAVEN CLAW')
+                else:
+                    house = 0
+
                 resp = self._wildcards(resp, match) # process wildcards
+
+                if idx == num_pairs - 1:
+                    selection += 2
+                else:
+                    selection = 0
 
                 # fix munged punctuation at the end
                 if resp[-2:] == '?.': resp = resp[:-2] + '.'
                 if resp[-2:] == '??': resp = resp[:-2] + '?'
-                return resp
+
+                
+
+                return selection, resp, house
 
     # Hold a conversation with a chatbot
 
@@ -123,26 +154,41 @@ class Chat(object):
 
         # obtain audio from the microphone
         r = sr.Recognizer()
+        m = sr.Microphone()
         entries = corpus.cmudict.entries()
 
         while input != quit:
-            input = quit
+            input = ""
 
-            with sr.Microphone() as source:
+            with m as source:
+                r.adjust_for_ambient_noise(source)
                 audio = r.listen(source)
 
-            # recognize speech using Google Speech Recognition
+            # try recognize speech using Google Speech Recognition
             try:
                 input = r.recognize_google(audio)
             except sr.UnknownValueError:
-                input = "Google Speech Recognition could not understand audio"
+                output = (1, "I couldn't understand that. Pipe up little one.", 0)
+                input = ""
             except sr.RequestError as e:
-                input = "Could not request results from Google Speech Recognition service; {0}".format(e)
+                output = (1, "Looks like I'm having some technical issues.", 0)
+                input = ""
 
+            # parsed valid input from speech recognition
+            # generate output for the hat
             if input:
                 while input[-1] in "!.": input = input[:-1]
-                print(input)
-                print(self.respond(input))
+                if DEBUG:
+                    print(input)
+                index, output_text, house = self.respond(input)
+                
+
+                output = (index, output_text, house)
+
+            # hat output
+            if DEBUG:
+                print(output)
+                Popen(['say', '"' + output[1] + '"']).communicate()
 
 
 

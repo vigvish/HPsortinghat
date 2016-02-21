@@ -1,0 +1,22 @@
+FIRST PARAM
+0 - see SECOND PARAM
+1 - "I couldn't understand that. Pipe up little one."
+2 - "So.... Forest or river?"
+3 - "I see. Now tell me, do you prefer dawn or dusk?"
+4 - "So..... Moon or stars?"
+5 - "I see. Now tell me, heads or tails?"
+6 - "Let's change focus a bit... Tell me about your biggest fear."
+7 - "Can you elaborate on that?"
+8 - "Very interesting."
+
+
+SECOND PARAM
+text
+
+
+THIRD PARAM
+0 - no house
+1 - Gryffindor
+2 - Slytherin
+3 - Hufflepuff
+4 - Ravenclaw

@@ -8,8 +8,8 @@ On your Arduino:
 - HarryPotter_sorting.ino
 
 On your RasPi:
-$ python receiveMessage.py
+- python receiveMessage.py
 
 On your Mac:
-$ sshfs pi@10.0.1.21:/home/pi ~/pi_share
-$ python chatbot.py
+- sshfs pi@10.0.1.21:/home/pi ~/pi_share
+- python chatbot.py

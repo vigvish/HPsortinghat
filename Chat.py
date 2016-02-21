@@ -187,7 +187,7 @@ class Chat(object):
                 
 
                 # index=phrase, output_text=speech, house=
-                output = [index, output_text, house]
+                output = [index, output_text.lower(), house]
 
             
 

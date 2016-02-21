@@ -22,7 +22,7 @@ void setup() {
   strip.setPixelColor(1, 75, 0, 130);
   strip.show();
   moveservo.attach(9);
-  moveservo.write(0);
+  moveservo.write(45);
 }
 
 void sorting(){
@@ -60,18 +60,20 @@ void sorting(){
 }
 
 void movemotor(){
-  pos = 0;
+  pos = 45;
   moveservo.write(pos);              // tell servo to go to position in variable 'pos'
-  delay(15);
-  pos = 180;
+  delay(5);
+  pos = 135;
   moveservo.write(pos);
-  delay(15); 
+  delay(5); 
 }
 
 void loop() {
   if (Serial.available()){
     sorting();
    }
-  movemotor(); 
+  if (val == '5'){
+    movemotor(); 
+  }
 }
 

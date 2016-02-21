@@ -3,7 +3,7 @@
 
 Servo moveservo;
 
-int val;
+char val;
 int pos;
       #define PIN 6
 
@@ -27,31 +27,31 @@ void setup() {
 
 void sorting(){
   val = Serial.read();
-    if (val == '0'){
+    if (val == 'A'){
       Serial.print("Rawenclaw");
       strip.setPixelColor(0, 0, 0, 150);
       strip.setPixelColor(1, 0, 0, 150);
       strip.show();
     }
-    if (val == '1'){
+    if (val == 'B'){
       Serial.print("Sytherin");
       strip.setPixelColor(0, 0, 150, 0);
       strip.setPixelColor(1, 0, 150, 0);
       strip.show();
     }
-    if (val == '2'){
+    if (val == 'C'){
     Serial.print("Gryffindor");
     strip.setPixelColor(0, 150, 0, 0);
     strip.setPixelColor(1, 150, 0, 0);
     strip.show();
     }
-    if (val == '3'){
+    if (val == 'D'){
       Serial.print("Hufflepuff");
       strip.setPixelColor(0, 255, 150, 0);
       strip.setPixelColor(1, 255, 150, 0);
       strip.show();
     }
-    if (val == '5'){
+    if (val == 'E'){
       Serial.print("Reset");
       strip.setPixelColor(0, 75, 0, 130);
       strip.setPixelColor(1, 75, 0, 130);
@@ -77,9 +77,9 @@ void loop() {
   if (Serial.available()){
     sorting();
    }
-  if (val == '4'){
+  if (val == 'F'){
     movemotor();
-    val = 10; 
+    val = 'G'; 
   }
     strip.setPixelColor(0, 200, 200, 200);
     strip.setPixelColor(1, 200, 200, 200);

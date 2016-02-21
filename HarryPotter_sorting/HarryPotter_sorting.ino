@@ -51,7 +51,7 @@ void sorting(){
       strip.setPixelColor(1, 255, 150, 0);
       strip.show();
     }
-    if (val == '4'){
+    if (val == '5'){
       Serial.print("Reset");
       strip.setPixelColor(0, 75, 0, 130);
       strip.setPixelColor(1, 75, 0, 130);
@@ -72,7 +72,7 @@ void loop() {
   if (Serial.available()){
     sorting();
    }
-  if (val == '5'){
+  if (val == '4'){
     movemotor(); 
   }
 }

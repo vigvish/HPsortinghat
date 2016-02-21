@@ -70,7 +70,7 @@ pairs = (
     "You could be great in %2")),
 
   (r'((.*)((bug)|(insect)|(spider))(.*))',
-  ( "Not very brave, are you?",
+  ( "Not very courageous, are you?",
     "Somehow, the bravest people are still afraid of bugs." )),
 
   (r'(((.*)No(t?) (.*)lazy(.*))|((.*)((Forest)|(Tail))(.*)))',
@@ -103,7 +103,7 @@ pairs = (
 
   (r'(((.*) ((scared)|(afraid)|(coward))(.*))|((.*)No(t?)(.*) brave(.*)))',
   ( "Definitely not griffin door then.",
-    "Not very brave, are you?" )),
+    "Not very courageous, are you?" )),
 
   (r'((.*)(( brave)|(Head))(.*))',
   ( "GRYFFINDOR it is then!",
@@ -179,7 +179,7 @@ pairs = (
     "Are we talking about you, or me?", 
     "No, you.")),
 
-  (r'((Hello)|(Hi)|(Yo)|(Hey))(.*)',
+  (r'((Hello)|(Hi)|(Hey))(.*)',
   ( "Hello... Bee in your bonnet?",
     "Hello... how are you today?",
     "Hello, where to put you?")),
@@ -329,6 +329,17 @@ pairs = (
     "Let's change focus a bit... Tell me about your biggest fear.",
     "I see. So..... heads or tails?",
     "I see. Now tell me, do you prefer dawn or dusk?")),
+
+  (r'(.*)((You)|(You\'re))(.*)',
+  ( "We should be discussing you, not me.",
+    "Perhaps you are really talking about yourself?",
+    "Are we talking about you, or me?", 
+    "No, you.")),
+
+  (r'Yo(.*)',
+  ( "Hello... Bee in your bonnet?",
+    "Hello... how are you today?",
+    "Hello, where to put you?")),
 
   (r'quit',
   ( "Enjoy your time at Hogwarts.",

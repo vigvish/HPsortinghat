@@ -17,9 +17,12 @@ from nltk import compat, corpus
 import sys
 import os
 from subprocess import *
+import urllib
 
 import speech_recognition as sr
 import warnings
+import math
+import time
 
 warnings.filterwarnings("ignore")
 
@@ -133,7 +136,7 @@ class Chat(object):
 
                 resp = self._wildcards(resp, match) # process wildcards
 
-                if idx == num_pairs - 1:
+                if idx == num_pairs - 1 or idx == 0:
                     selection += 2
                 else:
                     selection = 0
@@ -168,10 +171,10 @@ class Chat(object):
             try:
                 input = r.recognize_google(audio)
             except sr.UnknownValueError:
-                output = (1, "I couldn't understand that. Pipe up little one.", 0)
+                output = [1, "I couldn't understand that. Pipe up little one.", 0]
                 input = ""
             except sr.RequestError as e:
-                output = (1, "Looks like I'm having some technical issues.", 0)
+                output = [1, "Looks like I'm having some technical issues.", 0]
                 input = ""
 
             # parsed valid input from speech recognition
@@ -183,12 +186,19 @@ class Chat(object):
                 index, output_text, house = self.respond(input)
                 
 
-                output = (index, output_text, house)
+                # index=phrase, output_text=speech, house=
+                output = [index, output_text, house]
+
+            
 
             # hat output
             if DEBUG:
                 print(output)
                 Popen(['say', '"' + output[1] + '"']).communicate()
-
+            else:
+                call('python speak.py \"' + output[1] + '\" ' + str(output[0]) + ' ' + str(output[2]) + ' ' + str(0), shell=True)
+                print('say \"' + str(output[1]) + '\"')
+                call('say \"' + str(output[1]) + '\"', shell=True)
+                time.sleep(2)
 
 

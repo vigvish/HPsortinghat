@@ -54,8 +54,17 @@ song_excerpts = ( ' '.join(song.split('\n')[:4]).strip(),
 
 pairs = (
 
+  (r'(.*)house(.*)',
+  ( "So.... Forest or river?",
+    "I see. Now tell me, do you prefer dawn or dusk?",
+    "So..... Moon or stars?",
+    "I see. Now tell me, heads or tails?",
+    "Let's change focus a bit... Tell me about your biggest fear.",
+    "Can you elaborate on that?",
+    "Very interesting.")),
+
   (r'(.*)((Hufflepuff)|(Ravenclaw)|(Gryffindor)|(Slytherin))(.*)',
-  ( "So you think you\'d do well in %2?",
+  ( "So you think you would do well in %2?",
     "You like %2, don't you",
     "You could do well in %2",
     "You could be great in %2")),
@@ -67,7 +76,7 @@ pairs = (
   (r'(((.*)No(t?) (.*)lazy(.*))|((.*)((Forest)|(Tail))(.*)))',
   ( "HUFFLEPUFF it is then!",
     "You could do well in Hufflepuff.",
-    "Why, you're a HUFFLEPUFF!" )),
+    "Why, you are a HUFFLEPUFF!" )),
 
   (r'(((.*) lazy(.*))|((.*)No(t?)(.*) hard(\s?)work(.*)))',
   ( "Definitely not Hufflepuff then.",
@@ -77,13 +86,13 @@ pairs = (
 
   (r'(((.*) hard(\s?)work(.*))|((.*)work (.*)hard(.*)))',
   ( "HUFFLEPUFF it is then!",
-    "Why, you're a HUFFLEPUFF!",
+    "Why, you are a HUFFLEPUFF!",
     "You could do well in Hufflepuff.",
     "Working hard is important. But there is something that matters even more: believing in yourself." )),
 
   (r'((.*)No(t?)(.*)((coward)|(afraid)|(scared))(.*))',
   ( "GRYFFINDOR it is then!",
-    "Why, you're a GRYFFINDOR!",
+    "Why, you are a GRYFFINDOR!",
     "You could do well in griffin door.")),
 
   (r'((.*)((death)|(dying))(.*))',
@@ -99,15 +108,15 @@ pairs = (
   (r'((.*)(( brave)|(Head))(.*))',
   ( "GRYFFINDOR it is then!",
     "You could do well in griffin door.",
-    "Why, you're a GRYFFINDOR!" )),
+    "Why, you are a GRYFFINDOR!" )),
 
   (r'((.*)(Dawn)(.*))',
   ( "GRYFFINDOR it is then!",
     "You could do well in griffin door.",
     "You like books, don't you",
-    "Why, you're a GRYFFINDOR!",
+    "Why, you are a GRYFFINDOR!",
     "You could do well in raven claw.",
-    "Why, you're a RAVENCLAW!",
+    "Why, you are a RAVENCLAW!",
     "RAVENCLAW it is then!" )),
 
   (r'((.*)((happ)|(sad)|(depress))(.*))',
@@ -120,14 +129,14 @@ pairs = (
 
   (r'(((.*) ((cash)|(money)|(ambitio)|(power))(.*))|(.*)((Moon)|(Dusk))(.*))',
   ( "SLYTHERIN it is then!",
-    "You'd do well in sliderin.",
+    "You would do well in sliderin.",
     "You like power, don't you",
-    "Why, you're a SLYTHERIN!" )),
+    "Why, you are a SLYTHERIN!" )),
 
   (r'((.*)No(t?) (.*)((dumb)|(stupid)|(idiot))(.*))',
   ( "RAVENCLAW it is then!",
-    "Why, you're a RAVENCLAW!",
-    "You'd do well in raven claw.",
+    "Why, you are a RAVENCLAW!",
+    "You would do well in raven claw.",
     "You like books, don't you",
     "Cleverness! There are more important things - friendship and bravery.")),
 
@@ -141,8 +150,8 @@ pairs = (
   (r'((.*)((smart)|(clever)|(witty)|(Star)|(River))(.*))',
   ( "RAVENCLAW it is then!",
     "You like books, don't you",
-    "You'd do well in raven claw.",
-    "Why, you're a RAVENCLAW!" )),
+    "You would do well in raven claw.",
+    "Why, you are a RAVENCLAW!" )),
 
   (r'(.*) (song|poem)(.*)',
   song_excerpts),
@@ -154,9 +163,19 @@ pairs = (
   ( "It is our choices that show who we truly are, far more than our abilities.",
     "We must all face the choice between what is right and what is easy.")),
 
+  (r'(.*)\?',
+  ( "Please consider whether you can answer your own question.",
+    "The answer lies within yourself.",
+    "Why don't you tell me?")),
+
+  (r'(Why|Who|What|How|Where|When|Can|Is|Will)(.*)',
+  ( "Please consider whether you can answer your own question.",
+    "The answer lies within yourself.",
+    "Why don't you tell me?")),
+
   (r'(.*)((You)|(You\'re))(.*)',
   ( "We should be discussing you, not me.",
-    "Perhaps you're really talking about yourself?",
+    "Perhaps you are really talking about yourself?",
     "Are we talking about you, or me?", 
     "No, you.")),
 
@@ -292,22 +311,17 @@ pairs = (
 
   (r'I want (.*)',
   ( "Why do you want %1?",
-    "You'd do well if you had %1")),
+    "You would do well if you had %1")),
   
   (r'(.*)((bitch)|(shit)|(fuck)|(slut)|(whore))(.*)',
   ( "Maybe you don\'t belong in any Hogwarts House.",
-    "I'd hex you if I had hands.",
+    "I would hex you if I had hands.",
     "Straight to the dungeons with you!",
     "Someone should hex you.")),
 
   (r'(.*)friend(.*)',
   ( "Did you have close friends as a child?",
     "Do you consider your friends close?")),
-
-  (r'(.*)\?',
-  ( "Please consider whether you can answer your own question.",
-    "The answer lies within yourself.",
-    "Why don't you tell me?")),
 
   (r'(Yes|no)',
   ( "You seem quite sure.",

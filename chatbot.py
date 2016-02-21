@@ -1,4 +1,4 @@
-from nltk.chat.util import Chat, reflections
+from Chat import Chat, reflections
 from random import randint
 
 song = "Oh you may not think I'm pretty, \n\
@@ -335,20 +335,19 @@ pairs = (
 )
 
 
-eliza_chatbot = Chat(pairs, reflections)
+hat_chatbot = Chat(pairs, reflections)
 
-def eliza_chat():
+def hat_chat():
     print("Sorting Hat\n---------")
     print("Talk to the sorting hat by typing in plain English, using normal upper-")
     print('and lower-case letters and punctuation.  Enter "quit" when done.')
     print('='*72)
-    # print("Hmm. Where shall I put you?")
     print(song_excerpts[randint(0,4)])
 
-    eliza_chatbot.converse()
+    hat_chatbot.converse()
 
 def demo():
-    eliza_chat()
+    hat_chat()
 
 if __name__ == "__main__":
     demo()

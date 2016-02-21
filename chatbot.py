@@ -55,17 +55,16 @@ song_excerpts = ( ' '.join(song.split('\n')[:4]).strip(),
 pairs = (
 
   (r'(.*)house(.*)',
-  ( "So.... Forest or river?",
-    "I see. Now tell me, do you prefer dawn or dusk?",
-    "So..... Moon or stars?",
-    "I see. Now tell me, heads or tails?",
+  ( "I see... Now tell me, do you prefer dawn or dusk?",
+    "So... Moon or stars?",
+    "I see... Now tell me, heads or tails?",
     "Let's change focus a bit... Tell me about your biggest fear.",
     "Can you elaborate on that?",
     "Very interesting.")),
 
   (r'(.*)((Hufflepuff)|(Ravenclaw)|(Gryffindor)|(Slytherin))(.*)',
   ( "So you think you would do well in %2?",
-    "You like %2, don't you",
+    "You like %2, don't you.",
     "You could do well in %2",
     "You could be great in %2")),
 
@@ -75,7 +74,7 @@ pairs = (
 
   (r'(((.*)No(t?) (.*)lazy(.*))|((.*)((Forest)|(Tail))(.*)))',
   ( "HUFFLEPUFF it is then!",
-    "You could do well in Hufflepuff.",
+    "You could do well in HUFFLEPUFF.",
     "Why, you are a HUFFLEPUFF!" )),
 
   (r'(((.*) lazy(.*))|((.*)No(t?)(.*) hard(\s?)work(.*)))',
@@ -87,13 +86,13 @@ pairs = (
   (r'(((.*) hard(\s?)work(.*))|((.*)work (.*)hard(.*)))',
   ( "HUFFLEPUFF it is then!",
     "Why, you are a HUFFLEPUFF!",
-    "You could do well in Hufflepuff.",
+    "You could do well in HUFFLEPUFF.",
     "Working hard is important. But there is something that matters even more: believing in yourself." )),
 
   (r'((.*)No(t?)(.*)((coward)|(afraid)|(scared))(.*))',
   ( "GRYFFINDOR it is then!",
     "Why, you are a GRYFFINDOR!",
-    "You could do well in griffin door.")),
+    "You could do well in GRYFFINDOR.")),
 
   (r'((.*)((death)|(dying))(.*))',
   ( "The ones that love us never really leave us.",
@@ -107,15 +106,15 @@ pairs = (
 
   (r'((.*)(( brave)|(Head))(.*))',
   ( "GRYFFINDOR it is then!",
-    "You could do well in griffin door.",
+    "You could do well in GRYFFINDOR.",
     "Why, you are a GRYFFINDOR!" )),
 
   (r'((.*)(Dawn)(.*))',
   ( "GRYFFINDOR it is then!",
-    "You could do well in griffin door.",
+    "You could do well in GRYFFINDOR.",
     "You like books, don't you",
     "Why, you are a GRYFFINDOR!",
-    "You could do well in raven claw.",
+    "You could do well in RAVENCLAW.",
     "Why, you are a RAVENCLAW!",
     "RAVENCLAW it is then!" )),
 
@@ -129,14 +128,14 @@ pairs = (
 
   (r'(((.*) ((cash)|(money)|(ambitio)|(power))(.*))|(.*)((Moon)|(Dusk))(.*))',
   ( "SLYTHERIN it is then!",
-    "You would do well in sliderin.",
+    "You would do well in SLYTHERIN.",
     "You like power, don't you",
     "Why, you are a SLYTHERIN!" )),
 
   (r'((.*)No(t?) (.*)((dumb)|(stupid)|(idiot))(.*))',
   ( "RAVENCLAW it is then!",
     "Why, you are a RAVENCLAW!",
-    "You would do well in raven claw.",
+    "You would do well in RAVENCLAW.",
     "You like books, don't you",
     "Cleverness! There are more important things - friendship and bravery.")),
 
@@ -147,10 +146,10 @@ pairs = (
     "Not very witty, are you?",
     "Not very clever, are you?" )),
 
-  (r'((.*)((smart)|(clever)|(witty)|(Star)|(River))(.*))',
+  (r'((.*)((smart)|(clever)|(witty)|(Star)|(Ocean))(.*))',
   ( "RAVENCLAW it is then!",
     "You like books, don't you",
-    "You would do well in raven claw.",
+    "You would do well in RAVENCLAW.",
     "Why, you are a RAVENCLAW!" )),
 
   (r'(.*) (song|poem)(.*)',
@@ -327,8 +326,8 @@ pairs = (
   ( "You seem quite sure.",
     "OK, but can you elaborate a bit?",
     "Let's change focus a bit... Tell me about your biggest fear.",
-    "I see. So..... heads or tails?",
-    "I see. Now tell me, do you prefer dawn or dusk?")),
+    "I see... So... heads or tails?",
+    "I see... Now tell me, do you prefer dawn or dusk?")),
 
   (r'(.*)((You)|(You\'re))(.*)',
   ( "We should be discussing you, not me.",
@@ -347,10 +346,9 @@ pairs = (
     "Hogwarts, Hogwarts, Hoggy Warty Hogwarts \nLearn something please!")),
 
   (r'(.*)',
-  ( "So.... Forest or river?",
-    "I see. Now tell me, do you prefer dawn or dusk?",
-    "So..... Moon or stars?",
-    "I see. Now tell me, heads or tails?",
+  ( "I see... Now tell me, do you prefer dawn or dusk?",
+    "So... Moon or stars?",
+    "I see... Now tell me, heads or tails?",
     "Let's change focus a bit... Tell me about your biggest fear.",
     "Can you elaborate on that?",
     "Very interesting."))

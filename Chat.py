@@ -9,7 +9,7 @@
 # Jeff Epler <jepler@inetnebr.com> and Jez Higgins <jez@jezuk.co.uk>.
 from __future__ import print_function
 
-DEBUG = True
+DEBUG = False
 
 import re
 import random

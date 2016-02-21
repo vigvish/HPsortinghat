@@ -1,13 +1,12 @@
 FIRST PARAM
 0 - see SECOND PARAM
 1 - "I couldn't understand that. Pipe up little one."
-2 - "So.... Forest or river?"
-3 - "I see. Now tell me, do you prefer dawn or dusk?"
-4 - "So..... Moon or stars?"
-5 - "I see. Now tell me, heads or tails?"
-6 - "Let's change focus a bit... Tell me about your biggest fear."
-7 - "Can you elaborate on that?"
-8 - "Very interesting."
+2 - "I see. Now tell me, do you prefer dawn or dusk?"
+3 - "So..... Moon or stars?"
+4 - "I see. Now tell me, heads or tails?"
+5 - "Let's change focus a bit... Tell me about your biggest fear."
+6 - "Can you elaborate on that?"
+7 - "Very interesting."
 
 
 SECOND PARAM

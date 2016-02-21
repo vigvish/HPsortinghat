@@ -313,7 +313,7 @@ pairs = (
   ( "Why do you want %1?",
     "You would do well if you had %1")),
   
-  (r'(.*)((bitch)|(shit)|(fuck)|(slut)|(whore))(.*)',
+  (r'(.*)((bitch)|(shit)|(fuck)|(slut)|(whore)|(ass))(.*)',
   ( "Maybe you don\'t belong in any Hogwarts House.",
     "I would hex you if I had hands.",
     "Straight to the dungeons with you!",

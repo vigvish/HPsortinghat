@@ -149,6 +149,11 @@ class Chat(object):
 
                 return selection, resp, house
 
+    def converse_terminal(self, input="quit"):
+        if input:
+            while input[-1] in "!.": input = input[:-1]
+            return self.respond(input)
+
     # Hold a conversation with a chatbot
 
     def converse(self, quit="quit"):

@@ -3,7 +3,7 @@
 
 Servo moveservo;
 
-int val;
+char val;
 int pos;
       #define PIN 6
 
@@ -18,40 +18,40 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(2, PIN, NEO_GRB + NEO_KHZ800);
 void setup() {
   Serial.begin(9600); 
   strip.begin();
-  strip.setPixelColor(0, 75, 0, 130);
-  strip.setPixelColor(1, 75, 0, 130);
+  strip.setPixelColor(0, 200, 200, 200);
+  strip.setPixelColor(1, 200, 200, 200);
   strip.show();
   moveservo.attach(9);
-  moveservo.write(0);
+  moveservo.write(45);
 }
 
 void sorting(){
   val = Serial.read();
-    if (val == '0'){
+    if (val == 'A'){
       Serial.print("Rawenclaw");
       strip.setPixelColor(0, 0, 0, 150);
       strip.setPixelColor(1, 0, 0, 150);
       strip.show();
     }
-    if (val == '1'){
+    if (val == 'B'){
       Serial.print("Sytherin");
       strip.setPixelColor(0, 0, 150, 0);
       strip.setPixelColor(1, 0, 150, 0);
       strip.show();
     }
-    if (val == '2'){
+    if (val == 'C'){
     Serial.print("Gryffindor");
     strip.setPixelColor(0, 150, 0, 0);
     strip.setPixelColor(1, 150, 0, 0);
     strip.show();
     }
-    if (val == '3'){
+    if (val == 'D'){
       Serial.print("Hufflepuff");
       strip.setPixelColor(0, 255, 150, 0);
       strip.setPixelColor(1, 255, 150, 0);
       strip.show();
     }
-    if (val == '4'){
+    if (val == 'E'){
       Serial.print("Reset");
       strip.setPixelColor(0, 75, 0, 130);
       strip.setPixelColor(1, 75, 0, 130);
@@ -60,18 +60,25 @@ void sorting(){
 }
 
 void movemotor(){
-  pos = 0;
+  pos = 45;
   moveservo.write(pos);              // tell servo to go to position in variable 'pos'
-  delay(15);
-  pos = 180;
+  delay(5);
+  pos = 135;
   moveservo.write(pos);
-  delay(15); 
+  delay(5); 
 }
 
 void loop() {
   if (Serial.available()){
     sorting();
+    movemotor();
+    delay(4000);
    }
-  movemotor(); 
+  if (val == 'F'){
+    movemotor();
+  }
+  strip.setPixelColor(0, 200, 200, 200);
+  strip.setPixelColor(1, 200, 200, 200);
+  strip.show();
 }
 

@@ -9,7 +9,7 @@
 # Jeff Epler <jepler@inetnebr.com> and Jez Higgins <jez@jezuk.co.uk>.
 from __future__ import print_function
 
-DEBUG = False
+DEBUG = True
 
 import re
 import random
@@ -150,11 +150,60 @@ class Chat(object):
                 return selection, resp, house
 
     def converse_terminal(self, input="quit"):
-        if input:
-            while input[-1] in "!.": input = input[:-1]
-            return self.respond(input)
+        input = ""
+        while input != quit:
+            input = quit
+            try: input = compat.raw_input(">")
+            except EOFError:
+                print(input)
+            if input:
+                while input[-1] in "!.": input = input[:-1]
+                print(self.respond(input)[1])
 
     # Hold a conversation with a chatbot
+
+    def converse_typing(self, input="quit"):
+        input = ""
+
+        while input != quit:
+
+            # try recognize speech using Google Speech Recognition
+            try:
+                input = r.recognize_google(audio)
+            except sr.UnknownValueError:
+                output = [1, "I couldn't understand that. Pipe up little one.", 0]
+                input = ""
+            except sr.RequestError as e:
+                output = [1, "Looks like I'm having some technical issues.", 0]
+                input = ""
+
+            # parsed valid input from speech recognition
+            # generate output for the hat
+            if input:
+                while input[-1] in "!.": input = input[:-1]
+                if DEBUG:
+                    print(input)
+                index, output_text, house = self.respond(input)
+                
+
+                # index=phrase, output_text=speech, house=
+                output = [index, output_text.lower(), house]
+
+            
+
+            # hat output
+            if DEBUG:
+                print(output)
+                Popen(['say', '"' + output[1] + '"']).communicate()
+            else:
+                call('python speak.py \"' + output[1] + '\" ' + str(output[0]) + ' ' + str(output[2]) + ' ' + str(0), shell=True)
+                print('say \"' + str(output[1]) + '\"')
+                call('say \"' + str(output[1]) + '\"', shell=True)
+                time.sleep(2)
+
+
+
+
 
     def converse(self, quit="quit"):
 

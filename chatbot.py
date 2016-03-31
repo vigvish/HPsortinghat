@@ -215,11 +215,11 @@ pairs = (
   #   "Perhaps you can answer your own question.",
   #   "What is it you're really asking?")),
 
-  # (r'Because (.*)',
-  # ( "Is that the real reason?",
-  #   "What other reasons come to mind?",
-  #   "Does that reason apply to anything else?",
-  #   "If %1, what else must be true?")),
+  (r'Because (.*)',
+  ( "Is that the real reason?",
+    "What other reasons come to mind?",
+    "Does that reason apply to anything else?",
+    "If %1, what else must be true?")),
 
   (r'(.*)((Sorry)|(Apolog))(.*)',
   ( "There are many times when no apology is needed.",
